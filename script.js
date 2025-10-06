@@ -63,7 +63,7 @@ class RiyaGiftWebsite {
         this.currentSection = 0;
         this.sections = ['onePiece', 'mlbb', 'favorites', 'final'];
         this.noClickCount = 0;
-        this.maxNoClicks = 5;
+        this.maxNoClicks = 10;
         this.loadingProgress = 0;
         this.quoteIndex = 0;
         this.data = websiteData;
@@ -438,16 +438,16 @@ class RiyaGiftWebsite {
         
         // Reset No button position and make it visible
         const noBtn = document.getElementById('noBtn');
-        noBtn.style.display = 'block';
+        // noBtn.style.display = 'block';
         this.resetNoButtonPosition();
     }
 
     resetNoButtonPosition() {
         const noBtn = document.getElementById('noBtn');
         // Reset to center position
-        noBtn.style.left = '50%';
-        noBtn.style.top = '50%';
-        noBtn.style.transform = 'translate(-50%, -50%)';
+        // noBtn.style.left = '50%';
+        // noBtn.style.top = '50%';
+        // noBtn.style.transform = 'translate(-50%, -50%)';
     }
 
     handleNoClick(e) {
