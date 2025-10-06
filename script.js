@@ -246,7 +246,12 @@ class RiyaGiftWebsite {
         });
 
         document.getElementById('nextBtn').addEventListener('click', () => {
-            this.showConfirmation();
+            if (this.currentSection < this.sections.length - 1) {
+                this.showConfirmation();
+            } else {
+                // This is the final section - show end message directly
+                this.showEndMessage();
+            }
         });
 
         document.getElementById('yesBtn').addEventListener('click', () => {
@@ -310,6 +315,11 @@ class RiyaGiftWebsite {
             setTimeout(() => {
                 if (sectionIndex < this.sections.length - 1) {
                     document.getElementById('nextBtn').classList.remove('hidden');
+                    document.getElementById('nextBtn').textContent = "Continue";
+                } else {
+                    // This is the final section - change button text and behavior
+                    document.getElementById('nextBtn').classList.remove('hidden');
+                    document.getElementById('nextBtn').textContent = "See the Surprise!";
                 }
             }, 5000);
         }, 100);
@@ -438,16 +448,16 @@ class RiyaGiftWebsite {
         
         // Reset No button position and make it visible
         const noBtn = document.getElementById('noBtn');
-        // noBtn.style.display = 'block';
         this.resetNoButtonPosition();
     }
 
     resetNoButtonPosition() {
         const noBtn = document.getElementById('noBtn');
         // Reset to center position
-        // noBtn.style.left = '50%';
-        // noBtn.style.top = '50%';
-        // noBtn.style.transform = 'translate(-50%, -50%)';
+        noBtn.style.position = 'static';
+        noBtn.style.left = '';
+        noBtn.style.top = '';
+        noBtn.style.transform = '';
     }
 
     handleNoClick(e) {
@@ -500,6 +510,7 @@ class RiyaGiftWebsite {
         const randomY = Math.max(0, Math.min(maxY, Math.random() * maxY));
         
         // Position the button relative to the confirmation buttons container
+        button.style.position = 'absolute';
         button.style.left = `${randomX}px`;
         button.style.top = `${randomY}px`;
         button.style.transform = 'none'; // Remove the centering transform
@@ -519,7 +530,10 @@ class RiyaGiftWebsite {
     }
 
     showEndMessage() {
-        // Create a beautiful ending message in the DOM
+        // Hide navigation since this is the end
+        document.getElementById('navigation').classList.add('hidden');
+        
+        // Create and show the ending message
         const finalSection = document.getElementById('finalSection');
         const endingMessage = document.createElement('div');
         endingMessage.className = 'ending-message';
@@ -534,11 +548,11 @@ class RiyaGiftWebsite {
             <p class="console-message">Check the browser console for a special message! (Press F12)</p>
         `;
         
-        setTimeout(() => {
-            finalSection.appendChild(endingMessage);
-            
-            // Show message in browser console
-            console.log(`%c
+        // Add the ending message to the final section
+        finalSection.querySelector('.container').appendChild(endingMessage);
+        
+        // Show message in browser console
+        console.log(`%c
 ╔═══════════════════════════════════════════════╗
 ║                                               ║
 ║   Thank you for experiencing this journey!    ║
@@ -555,12 +569,10 @@ class RiyaGiftWebsite {
         
         console.log("%cYou're special, Riya! Keep shining! ✨", "color: #985eff; font-size: 16px; font-style: italic;");
         
-        // Show visible prompt after 10 seconds
+        // Show visible prompt after 5 seconds instead of 10
         setTimeout(() => {
             this.showCompletionPrompt();
-        }, 10000);
-        
-        }, 2000);
+        }, 5000);
     }
 
     showCompletionPrompt() {
