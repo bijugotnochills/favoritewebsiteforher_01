@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Riya - A Special Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&family=Quicksand:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Sparkle Background -->
+    <div id="sparkleBackground"></div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="favmusic.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="screen active">
+        <div class="loading-container">
+            <div class="loading-circle">
+                <svg class="progress-ring" width="120" height="120">
+                    <circle class="progress-ring-circle" stroke="#bb86fc" stroke-width="8" fill="transparent" r="52"
+                        cx="60" cy="60" />
+                </svg>
+                <div class="loading-percentage">0%</div>
+            </div>
+            <div id="loadingQuote" class="loading-quote">Loading something special for you...</div>
+        </div>
+    </div>
+
+    <!-- Introduction Screen -->
+    <div id="introScreen" class="screen">
+        <div class="intro-container">
+            <div class="floating-hearts">
+                <div class="heart">💖</div>
+                <div class="heart">💝</div>
+                <div class="heart">💗</div>
+                <div class="heart">💓</div>
+                <div class="heart">💞</div>
+            </div>
+            <h1 id="introText">Are you ready for something special I made for you?</h1>
+            <button id="startBtn" class="btn pulse hidden">Begin the Journey</button>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div id="mainContent" class="hidden">
+        <!-- One Piece Section -->
+        <section id="onePieceSection" class="section hidden">
+            <div class="floating-sparkles"></div>
+            <div class="container">
+                <h2 class="section-title">The Greatest Treasure</h2>
+                <div class="content-grid">
+                    <div class="image-card animated-card">
+                        <div class="image-container">
+                            <img src="treasure.jpg" alt="Treasure Map" class="section-image">
+                        </div>
+                        <div class="quote-box">
+                            <p id="onePieceQuote"></p>
+                        </div>
+                    </div>
+                    <div class="pickup-card animated-card">
+                        <div class="pickup-line">
+                            <p id="onePiecePickup"></p>
+                        </div>
+                        <div class="treasure-chest">🗝️</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MLBB Section -->
+        <section id="mlbbSection" class="section hidden">
+            <div class="floating-sparkles"></div>
+            <div class="container">
+                <h2 class="section-title">Your Legendary Heroes</h2>
+                <div class="mlbb-content">
+                    <div id="lingCard" class="hero-card hidden animated-card">
+                        <div class="hero-image">
+                            <img src="ling.jpg" alt="Swordsman">
+                        </div>
+                        <div class="hero-info">
+                            <h3>Ling</h3>
+                            <p id="lingQuote"></p>
+                            <p class="pickup" id="lingPickup"></p>
+                        </div>
+                    </div>
+                    <div id="kaguraCard" class="hero-card hidden animated-card">
+                        <div class="hero-image">
+                            <img src="kagura.jpg" alt="Elegant Woman">
+                        </div>
+                        <div class="hero-info">
+                            <h3>Kagura</h3>
+                            <p id="kaguraQuote"></p>
+                            <p class="pickup" id="kaguraPickup"></p>
+                        </div>
+                    </div>
+                    <div id="flameShotCard" class="hero-card hidden animated-card">
+                        <div class="hero-image">
+                            <div class="hero-icon">🔥</div>
+                        </div>
+                        <div class="hero-info">
+                            <h3>Flame Shot</h3>
+                            <p id="flameShotText"></p>
+                            <p class="pickup" id="flameShotPickup"></p>
+                        </div>
+                    </div>
+                    <div id="thumbEmoteCard" class="hero-card hidden animated-card">
+                        <div class="hero-image">
+                            <div class="hero-icon">👍</div>
+                        </div>
+                        <div class="hero-info">
+                            <h3>Thumb Emote</h3>
+                            <p id="thumbEmoteText"></p>
+                            <p class="pickup" id="thumbEmotePickup"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section id="favoritesSection" class="section hidden">
+            <div class="floating-sparkles"></div>
+            <div class="container">
+                <h2 class="section-title">Things That Make You Special</h2>
+                <div class="favorites-grid">
+                    <div id="colorsCard" class="favorite-card hidden animated-card">
+                        <div class="favorite-icon">
+                            <div class="color-palette">
+                                <div class="color-swatch black"></div>
+                                <div class="color-swatch purple"></div>
+                            </div>
+                        </div>
+                        <h3>Favorite Colors</h3>
+                        <p class="favorite-item">Black & Purple</p>
+                        <p id="colorsText"></p>
+                    </div>
+                    <div id="flowersCard" class="favorite-card hidden animated-card">
+                        <div class="favorite-icon">
+                            <div class="flower-icons">
+                                <span class="flower">🌹</span>
+                                <span class="flower">🌷</span>
+                                <span class="flower">🌼</span>
+                            </div>
+                        </div>
+                        <h3>Favorite Flowers</h3>
+                        <p class="favorite-item">Rose, Tulip & Daisy</p>
+                        <p id="flowersText"></p>
+                    </div>
+                    <div id="songCard" class="favorite-card hidden animated-card">
+                        <div class="favorite-icon">
+                            <div class="music-icon">🎵</div>
+                        </div>
+                        <h3>Favorite Song</h3>
+                        <p class="favorite-item">"No One Noticed" by Marias</p>
+                        <p id="songText"></p>
+                    </div>
+                    <div id="iceCreamCard" class="favorite-card hidden animated-card">
+                        <div class="favorite-icon">
+                            <div class="icecream-icons">
+                                <span class="icecream">🍦</span>
+                                <span class="icecream">🍫</span>
+                            </div>
+                        </div>
+                        <h3>Favorite Ice Cream</h3>
+                        <p class="favorite-item">Vanilla & Chocolate</p>
+                        <p id="iceCreamText"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Section -->
+        <section id="finalSection" class="section hidden">
+            <div class="floating-hearts">
+                <div class="heart">💖</div>
+                <div class="heart">💝</div>
+                <div class="heart">💗</div>
+                <div class="heart">💓</div>
+                <div class="heart">💞</div>
+            </div>
+            <div class="container">
+                <div class="final-content">
+                    <div class="headpat-animation">
+                        <div class="head">🥺</div>
+                        <div class="hand">👉👈</div>
+                    </div>
+                    <h2 class="final-title">For You, Riya</h2>
+                    <div class="message-container animated-card">
+                        <p id="finalMessage"></p>
+                        <p id="closingMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div id="navigation" class="navigation hidden">
+        <button id="nextBtn" class="btn next-btn hidden pulse">Continue</button>
+        <div id="confirmation" class="confirmation hidden animated-card">
+            <p>Ready for the next part of our journey?</p>
+            <div id="errorMessage" class="error-message hidden"></div>
+            <div class="confirmation-buttons">
+                <button id="yesBtn" class="btn yes-btn">Yes</button>
+                <button id="noBtn" class="btn no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
